@@ -8,7 +8,7 @@ const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 workerUrl.searchParams.set("pages-build", `${Date.now()}`);
 
 const { default: worker } = await import(workerUrl.href);
-const routes = ["/", "/funktionen", "/schulen", "/support", "/datenschutz", "/404"];
+const routes = ["/", "/funktionen", "/schulen", "/support", "/kontakt", "/datenschutz", "/404"];
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbox-app.ch";
 
 await rm(outputRoot, { recursive: true, force: true });
@@ -50,6 +50,7 @@ const sitemap = [
   ["/funktionen", "0.9"],
   ["/schulen", "0.8"],
   ["/support", "0.7"],
+  ["/kontakt", "0.7"],
   ["/datenschutz", "0.5"],
 ]
   .map(

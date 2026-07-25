@@ -29,8 +29,8 @@ export default function SupportPage() {
         <section className="section support-cards">
           <div className="container support-grid">
             <a href="#faq"><span>?</span><h2>Antwort finden</h2><p>Die häufigsten Fragen kurz und verständlich erklärt.</p><b>Zu den FAQ →</b></a>
-            <a href="mailto:yannis.66678@gmail.com?subject=Inbox%20Support"><span>↗</span><h2>Uns schreiben</h2><p>Beschreibe dein Problem und wir kümmern uns darum.</p><b>E-Mail öffnen →</b></a>
-            <a href="mailto:yannis.66678@gmail.com?subject=Feedback%20zu%20Inbox"><span>✦</span><h2>Idee teilen</h2><p>Dein Feedback hilft, Inbox für alle besser zu machen.</p><b>Feedback senden →</b></a>
+            <a href="/kontakt?thema=Technisches%20Problem"><span>↗</span><h2>Uns schreiben</h2><p>Beschreibe dein Problem und wir kümmern uns darum.</p><b>Kontaktformular öffnen →</b></a>
+            <a href="/kontakt?thema=Idee%20%26%20Feedback"><span>✦</span><h2>Idee teilen</h2><p>Dein Feedback hilft, Inbox für alle besser zu machen.</p><b>Feedback senden →</b></a>
           </div>
         </section>
         <section id="faq" className="section faq-section">
@@ -49,7 +49,7 @@ export default function SupportPage() {
             </div>
             <div className="contact-banner">
               <div><h2>Noch nicht gelöst?</h2><p>Schreib uns mit deiner Schule, deinem Gerät und einer kurzen Beschreibung.</p></div>
-              <a className="button button-light" href="mailto:yannis.66678@gmail.com?subject=Inbox%20Support">E-Mail an Yannis</a>
+              <a className="button button-light" href="/kontakt?thema=Frage%20zur%20App">Nachricht schreiben</a>
             </div>
             <p className="support-updated">Zuletzt aktualisiert: 23. März 2026 · Verantwortlicher: Yannis Ress</p>
           </div>

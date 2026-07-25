@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     title: "Inbox – Alles für deinen Schulalltag.",
     description:
       "Stundenplan, Noten, Prüfungen und Absenzen in einer App, die nicht nach Verwaltung aussieht.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Inbox App" }],
+    images: [{ url: "/og-v2.png", width: 1200, height: 630, alt: "Inbox – Alles für deinen Schulalltag" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Inbox – Alles für deinen Schulalltag.",
     description: "Deine Schule. Klar, schnell und an einem Ort.",
-    images: ["/og.png"],
+    images: ["/og-v2.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -66,6 +66,11 @@ export default function RootLayout({
       "Stundenplan, Noten, Pluspunkte, Prüfungen und Absenzen in einer modernen Schul-App.",
     url: siteUrl,
     downloadUrl: "https://apps.apple.com/us/app/inbox/id6760919212",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "yannis.66678@gmail.com",
+      contactType: "customer support",
+    },
   };
 
   return (

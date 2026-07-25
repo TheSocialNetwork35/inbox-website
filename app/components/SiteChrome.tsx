@@ -44,6 +44,7 @@ export function SiteHeader() {
           <a href="/funktionen">Funktionen</a>
           <a href="/schulen">Schulen</a>
           <a href="/support">Support</a>
+          <a href="/kontakt">Kontakt</a>
         </nav>
         <div className="nav-actions">
           <a href={APP_STORE_URL} target="_blank" rel="noreferrer" className="nav-download">App laden <span>↗</span></a>
@@ -54,6 +55,7 @@ export function SiteHeader() {
             <a href="/funktionen">Funktionen</a>
             <a href="/schulen">Schulen</a>
             <a href="/support">Support</a>
+            <a href="/kontakt">Kontakt</a>
             <a href="/datenschutz">Datenschutz</a>
             <a href={APP_STORE_URL} target="_blank" rel="noreferrer">App laden ↗</a>
           </div>
@@ -81,7 +83,7 @@ export function SiteFooter() {
           <h3>Hilfe</h3>
           <a href="/support">Support</a>
           <a href="/support#faq">FAQ</a>
-          <a href="mailto:yannis.66678@gmail.com">Kontakt</a>
+          <a href="/kontakt">Kontakt</a>
         </div>
         <div>
           <h3>Rechtliches</h3>

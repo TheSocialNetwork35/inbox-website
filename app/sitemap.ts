@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/funktionen", 0.9],
     ["/schulen", 0.8],
     ["/support", 0.7],
+    ["/kontakt", 0.7],
     ["/datenschutz", 0.5],
   ].map(([path, priority]) => ({
     url: `${base}${path}`,

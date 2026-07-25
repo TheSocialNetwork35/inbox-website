@@ -31,7 +31,7 @@ export default function SchoolsPage() {
             <SchoolDirectory />
             <div className="school-request">
               <div><span className="kicker">NOCH NICHT DABEI?</span><h2>Wünsch dir deine Schule.</h2><p>Schreib uns kurz, welche Schule fehlt. Anfragen helfen uns, die nächsten Integrationen zu priorisieren.</p></div>
-              <a className="button button-light" href="mailto:yannis.66678@gmail.com?subject=Schule%20vorschlagen">Schule vorschlagen</a>
+              <a className="button button-light" href="/kontakt?thema=Schule%20vorschlagen">Schule vorschlagen</a>
             </div>
           </div>
         </section>

@@ -153,14 +153,21 @@ export default function Home() {
         <section className="section product-story">
           <div className="container story-grid">
             <div className="story-visual">
+              <div className="story-orbit" aria-hidden="true"><i /><i /><i /></div>
               <AppScreenshot screen="grades" />
-              <div className="metric-chip metric-average">
-                <small>Gesamtschnitt</small>
-                <strong>5.12</strong>
-              </div>
-              <div className="metric-chip metric-points">
-                <small>Pluspunkte</small>
-                <strong>+4.5</strong>
+              <div className="metric-panel">
+                <span className="metric-panel-label"><i /> Live-Auswertung</span>
+                <div>
+                  <div className="metric-chip metric-average">
+                    <small>Gesamtschnitt</small>
+                    <strong>5.12</strong>
+                  </div>
+                  <div className="metric-chip metric-points">
+                    <small>Pluspunkte</small>
+                    <strong>+4.5</strong>
+                  </div>
+                </div>
+                <small className="metric-note">Automatisch aus deinen Noten berechnet</small>
               </div>
             </div>
             <div className="story-copy">

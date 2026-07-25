@@ -50,7 +50,7 @@ export function SchoolDirectory() {
           <div className="school-empty">
             <b>Keine Schule gefunden.</b>
             <span>Schick uns deinen Schulwunsch – wir prüfen die Integration.</span>
-            <a href={`mailto:yannis.66678@gmail.com?subject=${encodeURIComponent(`Schule vorschlagen: ${query}`)}`}>
+            <a href="/kontakt?thema=Schule%20vorschlagen">
               Schule vorschlagen →
             </a>
           </div>
