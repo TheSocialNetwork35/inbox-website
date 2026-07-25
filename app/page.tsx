@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element -- local app icon is a pre-sized immutable Cloudflare asset */
 import { DotField } from "./components/DotField";
+import SpotlightCard from "./components/SpotlightCard";
 import {
   AppScreenshot,
   FeatureIcon,
@@ -133,13 +134,17 @@ export default function Home() {
             </div>
             <div className="feature-grid">
               {features.map((feature, index) => (
-                <article className="feature-card" key={feature.title}>
+                <SpotlightCard
+                  className="feature-card"
+                  spotlightColor="rgba(116, 92, 255, 0.18)"
+                  key={feature.title}
+                >
                   <FeatureIcon name={feature.icon} />
                   <span className="feature-number">0{index + 1}</span>
                   <h3>{feature.title}</h3>
                   <p>{feature.text}</p>
                   <a href="/funktionen">Mehr erfahren →</a>
-                </article>
+                </SpotlightCard>
               ))}
             </div>
           </div>

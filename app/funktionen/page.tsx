@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SpotlightCard from "../components/SpotlightCard";
 import {
   AppScreenshot,
   FeatureIcon,
@@ -19,6 +20,12 @@ const details = [
   ["bell", "Änderungen, wenn sie passieren", "Inbox informiert dich über neue Noten und hält deine Schuldaten aktuell."],
   ["offline", "Auch ohne perfekte Verbindung", "Bereits geladene Daten bleiben verfügbar, wenn das Schul-WLAN einmal nicht mitspielt."],
   ["lock", "Deine Daten bleiben deine", "Zugangsdaten werden geschützt gespeichert und nur für die Verbindung zu deiner Schule verwendet."],
+];
+
+const detailSpotlights = [
+  "rgba(242, 163, 58, 0.18)",
+  "rgba(79, 147, 255, 0.18)",
+  "rgba(116, 92, 255, 0.18)",
 ];
 
 export default function FeaturesPage() {
@@ -92,12 +99,16 @@ export default function FeaturesPage() {
               <h2>Für den echten Schulalltag gebaut.</h2>
             </div>
             <div className="feature-grid">
-              {details.map(([icon, title, text]) => (
-                <article className="feature-card compact" key={title}>
+              {details.map(([icon, title, text], index) => (
+                <SpotlightCard
+                  className="feature-card compact"
+                  spotlightColor={detailSpotlights[index]}
+                  key={title}
+                >
                   <FeatureIcon name={icon} />
                   <h3>{title}</h3>
                   <p>{text}</p>
-                </article>
+                </SpotlightCard>
               ))}
             </div>
             <div className="center-action"><a className="button button-dark" href="/schulen">Ist meine Schule dabei?</a></div>
