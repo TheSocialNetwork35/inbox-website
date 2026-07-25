@@ -56,6 +56,59 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const fragmentBootstrap = `
+    (() => {
+      const hash = window.location.hash;
+      if (!hash) return;
+
+      window.__inboxInitialFragment = hash;
+      document.documentElement.classList.add("fragment-navigation");
+      window.history.replaceState(
+        window.history.state,
+        "",
+        window.location.pathname + window.location.search
+      );
+
+      const jump = () => {
+        let id = "";
+        try {
+          id = decodeURIComponent(hash.slice(1));
+        } catch {
+          document.documentElement.classList.remove("fragment-navigation");
+          return;
+        }
+
+        const target = document.getElementById(id);
+        if (!target) {
+          document.documentElement.classList.remove("fragment-navigation");
+          return;
+        }
+
+        window.scrollTo({
+          top: Math.max(0, target.getBoundingClientRect().top + window.scrollY - 24),
+          behavior: "auto"
+        });
+        target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+        window.__inboxFragmentHandled = true;
+        window.setTimeout(
+          () => document.documentElement.classList.remove("fragment-navigation"),
+          140
+        );
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener(
+          "DOMContentLoaded",
+          () => window.requestAnimationFrame(jump),
+          { once: true }
+        );
+      } else {
+        window.requestAnimationFrame(jump);
+      }
+    })();
+  `;
+
   const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -75,6 +128,9 @@ export default function RootLayout({
 
   return (
     <html lang="de-CH">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: fragmentBootstrap }} />
+      </head>
       <body>
         <script
           type="application/ld+json"

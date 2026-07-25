@@ -6,6 +6,13 @@ export function MotionController() {
   useEffect(() => {
     const root = document.documentElement;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const fragmentState = window as Window & {
+      __inboxInitialFragment?: string;
+      __inboxFragmentHandled?: boolean;
+    };
+    const initialFragment =
+      fragmentState.__inboxInitialFragment ?? window.location.hash;
+    let fragmentTimer: number | undefined;
     root.classList.add("motion-ready");
 
     const revealItems = Array.from(
@@ -19,9 +26,84 @@ export function MotionController() {
       item.style.setProperty("--reveal-delay", `${Math.min(index % 4, 3) * 55}ms`);
     });
 
-    if (reduceMotion) {
+    const clearFragmentMode = () => {
+      window.clearTimeout(fragmentTimer);
+      fragmentTimer = window.setTimeout(
+        () => root.classList.remove("fragment-navigation"),
+        140,
+      );
+    };
+
+    const jumpToFragment = (hash: string) => {
+      const id = decodeURIComponent(hash.replace(/^#/, ""));
+      const target = id ? document.getElementById(id) : null;
+      if (!target) return;
+
+      root.classList.add("fragment-navigation", "intro-ready");
       revealItems.forEach((item) => item.classList.add("is-visible"));
-      return () => root.classList.remove("motion-ready");
+
+      window.requestAnimationFrame(() => {
+        const targetY =
+          target.getBoundingClientRect().top + window.scrollY - 24;
+        window.scrollTo({ top: Math.max(0, targetY), behavior: "auto" });
+        target.setAttribute("tabindex", "-1");
+        target.focus({ preventScroll: true });
+        window.history.replaceState(
+          window.history.state,
+          "",
+          `${window.location.pathname}${window.location.search}`,
+        );
+        clearFragmentMode();
+      });
+    };
+
+    const onFragmentClick = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      if (!(event.target instanceof Element)) return;
+      const link = event.target.closest<HTMLAnchorElement>('a[href*="#"]');
+      if (!link) return;
+
+      const destination = new URL(link.href, window.location.href);
+      if (
+        destination.origin !== window.location.origin ||
+        destination.pathname !== window.location.pathname ||
+        !destination.hash
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      jumpToFragment(destination.hash);
+    };
+
+    document.addEventListener("click", onFragmentClick);
+
+    if (initialFragment && !fragmentState.__inboxFragmentHandled) {
+      jumpToFragment(initialFragment);
+    }
+
+    if (reduceMotion || initialFragment) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+      root.classList.add("intro-ready");
+      return () => {
+        document.removeEventListener("click", onFragmentClick);
+        window.clearTimeout(fragmentTimer);
+        root.classList.remove(
+          "motion-ready",
+          "intro-ready",
+          "fragment-navigation",
+        );
+      };
     }
 
     const observer = new IntersectionObserver(
@@ -39,9 +121,15 @@ export function MotionController() {
     const introFrame = window.requestAnimationFrame(() => root.classList.add("intro-ready"));
 
     return () => {
+      document.removeEventListener("click", onFragmentClick);
+      window.clearTimeout(fragmentTimer);
       observer.disconnect();
       window.cancelAnimationFrame(introFrame);
-      root.classList.remove("motion-ready", "intro-ready");
+      root.classList.remove(
+        "motion-ready",
+        "intro-ready",
+        "fragment-navigation",
+      );
     };
   }, []);
 

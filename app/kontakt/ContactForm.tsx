@@ -124,8 +124,9 @@ export function ContactForm() {
 
       <div className="contact-form-footer">
         <p>
-          Mit dem Absenden stimmst du zu, dass wir deine Angaben zur
-          Beantwortung verwenden. Mehr dazu im{" "}
+          Beim Absenden werden deine Angaben zur Bearbeitung über Formspree
+          übertragen. Bitte sende keine Passwörter oder besonders
+          schützenswerten Daten. Mehr dazu im{" "}
           <a href="/datenschutz">Datenschutz</a>.
         </p>
         <button

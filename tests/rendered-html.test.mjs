@@ -46,9 +46,11 @@ test("server-renders every public route", async () => {
 });
 
 test("ships production metadata, motion accessibility, and Pages output", async () => {
-  const [layout, css, packageJson, pagesIndex, pages404, robots, sitemap] =
+  const [layout, motion, privacy, css, packageJson, pagesIndex, pages404, robots, sitemap] =
     await Promise.all([
       readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../app/components/MotionController.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../app/datenschutz/page.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
       readFile(new URL("../package.json", import.meta.url), "utf8"),
       readFile(new URL("../pages-dist/index.html", import.meta.url), "utf8"),
@@ -59,6 +61,12 @@ test("ships production metadata, motion accessibility, and Pages output", async 
 
   assert.match(layout, /SoftwareApplication/);
   assert.match(layout, /openGraph/);
+  assert.match(layout, /__inboxInitialFragment/);
+  assert.match(layout, /DOMContentLoaded/);
+  assert.match(motion, /history\.replaceState/);
+  assert.match(motion, /event\.preventDefault/);
+  assert.match(privacy, /Formspree/);
+  assert.match(privacy, /Cloudflare/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(packageJson, /build:pages/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
