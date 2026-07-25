@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element -- local app icon is a pre-sized immutable Cloudflare asset */
 import { DotField } from "./components/DotField";
 import {
-  AppPreview,
+  AppScreenshot,
   FeatureIcon,
   SiteFooter,
   SiteHeader,
@@ -52,10 +52,11 @@ export default function Home() {
         <section className="hero">
           <div className="hero-dots" aria-hidden="true">
             <DotField
-              dotRadius={1.5}
+              dotRadius={2.1}
               dotSpacing={14}
               bulgeStrength={67}
-              glowRadius={160}
+              glowRadius={190}
+              sparkle
             />
           </div>
           <div className="hero-glow" aria-hidden="true" />
@@ -88,7 +89,7 @@ export default function Home() {
             </div>
             <div className="hero-product">
               <div className="phone-halo" aria-hidden="true" />
-              <AppPreview variant="plan" className="hero-phone" />
+              <AppScreenshot screen="plan" className="hero-phone" priority />
               <div className="floating-card floating-grade">
                 <span className="floating-icon green">↗</span>
                 <span>
@@ -148,7 +149,7 @@ export default function Home() {
         <section className="section product-story">
           <div className="container story-grid">
             <div className="story-visual">
-              <AppPreview variant="grades" />
+              <AppScreenshot screen="grades" />
               <div className="metric-chip metric-average">
                 <small>Gesamtschnitt</small>
                 <strong>5.12</strong>
@@ -174,6 +175,34 @@ export default function Home() {
               <a href="/funktionen#noten" className="button button-dark">
                 Notenfunktionen ansehen
               </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="section app-gallery">
+          <div className="container">
+            <div className="section-heading centered">
+              <span className="kicker">ECHTE APP. ECHTER ÜBERBLICK.</span>
+              <h2>So sieht Schule in Inbox aus.</h2>
+              <p>Dark Mode, klare Hierarchie und genau die Details, die im Schulalltag zählen.</p>
+            </div>
+            <div className="screen-gallery">
+              <article className="screen-gallery-card">
+                <AppScreenshot screen="plan" />
+                <div><span>01</span><h3>Plan</h3><p>Der ganze Tag – inklusive Pausen und Ausfällen.</p></div>
+              </article>
+              <article className="screen-gallery-card">
+                <AppScreenshot screen="grades" />
+                <div><span>02</span><h3>Noten</h3><p>Schnitt, Pluspunkte und Prüfungen auf einen Blick.</p></div>
+              </article>
+              <article className="screen-gallery-card">
+                <AppScreenshot screen="trend" />
+                <div><span>03</span><h3>Verlauf</h3><p>Deine Entwicklung als verständliche Kurve.</p></div>
+              </article>
+              <article className="screen-gallery-card">
+                <AppScreenshot screen="absences" />
+                <div><span>04</span><h3>Absenzen</h3><p>Status, Datum und Fach ohne Rätselraten.</p></div>
+              </article>
             </div>
           </div>
         </section>

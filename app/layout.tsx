@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { MotionController } from "./components/MotionController";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbox-app.ch";
 
@@ -64,6 +65,7 @@ export default function RootLayout({
     description:
       "Stundenplan, Noten, Pluspunkte, Prüfungen und Absenzen in einer modernen Schul-App.",
     url: siteUrl,
+    downloadUrl: "https://apps.apple.com/us/app/inbox/id6760919212",
   };
 
   return (
@@ -73,6 +75,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
+        <MotionController />
         {children}
       </body>
     </html>

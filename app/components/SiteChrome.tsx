@@ -1,9 +1,40 @@
 /* eslint-disable @next/next/no-img-element, @next/next/no-html-link-for-pages -- pre-sized local assets and full document navigation keep the static Pages build portable */
+"use client";
+
 import type { ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
+
+export const APP_STORE_URL = "https://apps.apple.com/us/app/inbox/id6760919212";
 
 export function SiteHeader() {
+  const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const lastY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    lastY.current = window.scrollY;
+    const update = () => {
+      const y = Math.max(window.scrollY, 0);
+      const delta = y - lastY.current;
+      setScrolled(y > 18);
+      if (y < 90) setHidden(false);
+      else if (delta > 7) setHidden(true);
+      else if (delta < -5) setHidden(false);
+      lastY.current = y;
+      ticking.current = false;
+    };
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      window.requestAnimationFrame(update);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="site-header">
+    <header className={`site-header${hidden ? " nav-hidden" : ""}${scrolled ? " nav-scrolled" : ""}`}>
       <div className="container nav-inner">
         <a href="/" className="brand" aria-label="Inbox Startseite">
           <img src="/assets/app-icon.png" alt="" />
@@ -16,7 +47,7 @@ export function SiteHeader() {
         </nav>
         <div className="nav-actions">
           <a href="/support" className="nav-support">Hilfe</a>
-          <a href="#download" className="nav-download">App laden <span>↗</span></a>
+          <a href={APP_STORE_URL} target="_blank" rel="noreferrer" className="nav-download">App laden <span>↗</span></a>
         </div>
         <details className="mobile-menu">
           <summary aria-label="Menü öffnen"><span /><span /></summary>
@@ -25,6 +56,7 @@ export function SiteHeader() {
             <a href="/schulen">Schulen</a>
             <a href="/support">Support</a>
             <a href="/datenschutz">Datenschutz</a>
+            <a href={APP_STORE_URL} target="_blank" rel="noreferrer">App laden ↗</a>
           </div>
         </details>
       </div>
@@ -44,13 +76,13 @@ export function SiteFooter() {
           <h3>Entdecken</h3>
           <a href="/funktionen">Funktionen</a>
           <a href="/schulen">Schulen</a>
-          <a href="#download">App laden</a>
+          <a href={APP_STORE_URL} target="_blank" rel="noreferrer">App laden</a>
         </div>
         <div>
           <h3>Hilfe</h3>
           <a href="/support">Support</a>
           <a href="/support#faq">FAQ</a>
-          <a href="mailto:support@inbox-app.ch">Kontakt</a>
+          <a href="mailto:yannis.66678@gmail.com">Kontakt</a>
         </div>
         <div>
           <h3>Rechtliches</h3>
@@ -69,12 +101,13 @@ export function SiteFooter() {
 export function StoreButton({ light = false }: { light?: boolean }) {
   return (
     <a
-      id="download"
-      href="#app-store"
+      href={APP_STORE_URL}
+      target="_blank"
+      rel="noreferrer"
       className={`store-button ${light ? "store-button-light" : ""}`}
       aria-label="Inbox im App Store laden"
     >
-      <span className="apple" aria-hidden="true">●</span>
+      <span className="apple" aria-hidden="true">◆</span>
       <span><small>Laden im</small><strong>App Store</strong></span>
       <i aria-hidden="true">↗</i>
     </a>
@@ -122,12 +155,41 @@ export function AppPreview({
   );
 }
 
+export function AppScreenshot({
+  screen,
+  className = "",
+  priority = false,
+}: {
+  screen: "plan" | "grades" | "trend" | "absences";
+  className?: string;
+  priority?: boolean;
+}) {
+  const labels = {
+    plan: "Inbox Stundenplan im Dark Mode",
+    grades: "Inbox Notenübersicht im Dark Mode",
+    trend: "Inbox Leistungsverlauf im Dark Mode",
+    absences: "Inbox Absenzenübersicht im Dark Mode",
+  };
+  return (
+    <figure className={`real-app-shot ${className}`.trim()}>
+      <img
+        src={`/assets/screenshots/${screen}-dark.png`}
+        alt={labels[screen]}
+        width="1095"
+        height="2239"
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
+      />
+    </figure>
+  );
+}
+
 function ScreenHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <div className="screen-header">
       <span className="screen-avatar">Y</span>
       <div><h4>{title}</h4>{subtitle && <small>{subtitle}</small>}</div>
-      <button aria-label="Ansicht wechseln">•••</button>
+      <span className="screen-menu-dot" aria-hidden="true">•••</span>
     </div>
   );
 }

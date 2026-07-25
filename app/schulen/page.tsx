@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero, SiteFooter, SiteHeader, StoreButton } from "../components/SiteChrome";
+import { SchoolDirectory } from "../components/SchoolDirectory";
 
 export const metadata: Metadata = {
   title: "Unterstützte Schulen",
@@ -7,14 +8,6 @@ export const metadata: Metadata = {
     "Prüfe, welche Schulen aktuell von Inbox unterstützt werden und wie die sichere Verbindung funktioniert.",
   alternates: { canonical: "/schulen" },
 };
-
-const schools = [
-  ["KEN", "Kantonsschule Enge", "Zürich"],
-  ["KKN", "Kantonsschule Küsnacht", "Küsnacht"],
-  ["KUE", "Kantonsschule Uetikon am See", "Uetikon"],
-  ["KST", "Kantonsschule Stadelhofen", "Zürich"],
-  ["KSH", "Kantonsschule Hohe Promenade", "Zürich"],
-];
 
 export default function SchoolsPage() {
   return (
@@ -35,23 +28,10 @@ export default function SchoolsPage() {
               <h2>Ist deine Schule dabei?</h2>
               <p>Die Liste wird laufend erweitert. Suche nach Kürzel, Name oder Ort.</p>
             </div>
-            <div className="school-search" role="search">
-              <span aria-hidden="true">⌕</span>
-              <input aria-label="Schule suchen" placeholder="Schule oder Ort suchen …" />
-            </div>
-            <div className="school-list">
-              {schools.map(([code, name, place]) => (
-                <article key={code}>
-                  <span>{code}</span>
-                  <div><h3>{name}</h3><p>{place}</p></div>
-                  <b>Unterstützt</b>
-                  <i>✓</i>
-                </article>
-              ))}
-            </div>
+            <SchoolDirectory />
             <div className="school-request">
               <div><span className="kicker">NOCH NICHT DABEI?</span><h2>Wünsch dir deine Schule.</h2><p>Schreib uns kurz, welche Schule fehlt. Anfragen helfen uns, die nächsten Integrationen zu priorisieren.</p></div>
-              <a className="button button-light" href="mailto:support@inbox-app.ch?subject=Schule%20vorschlagen">Schule vorschlagen</a>
+              <a className="button button-light" href="mailto:yannis.66678@gmail.com?subject=Schule%20vorschlagen">Schule vorschlagen</a>
             </div>
           </div>
         </section>

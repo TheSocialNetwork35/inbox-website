@@ -9,11 +9,11 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
-  ["Meine Daten werden nicht aktualisiert. Was kann ich tun?", "Ziehe die jeweilige Ansicht zuerst nach unten, um sie manuell zu aktualisieren. Prüfe danach deine Internetverbindung und ob der Schulzugang im Browser erreichbar ist. Bleibt das Problem bestehen, melde dich mit Schule und iOS-Version bei uns."],
-  ["Warum sehe ich eine neue Note noch nicht?", "Manche Schulsysteme stellen Änderungen zeitversetzt bereit. Öffne die Notenansicht und aktualisiere sie manuell. Sobald die Note von der Schule geliefert wird, erscheint sie in Inbox."],
-  ["Kann ich Inbox ohne Internet nutzen?", "Bereits geladene Stundenplan-, Noten- und Absenzdaten bleiben auf deinem Gerät verfügbar. Für neue Daten und Änderungen braucht Inbox eine Verbindung."],
-  ["Wo werden meine Zugangsdaten gespeichert?", "Deine Anmeldedaten werden geschützt im Schlüsselbund deines Apple-Geräts gespeichert. Weitere Einzelheiten findest du in unserer Datenschutzerklärung."],
-  ["Meine Schule fehlt. Kann sie hinzugefügt werden?", "Ja, schreib uns den vollständigen Namen und Ort deiner Schule. Wir sammeln Anfragen und prüfen, welche Systeme als Nächstes unterstützt werden können."],
+  ["Das Login schlägt fehl. Was kann ich tun?", "Prüfe Benutzername und Passwort deines Schulkontos. Falls das Login weiterhin fehlschlägt, schreib uns eine kurze Problembeschreibung und hänge wenn möglich einen Screenshot an."],
+  ["Warum fehlen Noten nach dem Semesterwechsel?", "Nach einem Semesterwechsel können Noten kurz verzögert erscheinen. Öffne die App neu oder melde dich einmal ab und wieder an, damit die Daten vollständig neu geladen werden."],
+  ["Meine Widgets aktualisieren sich nicht.", "Entferne das Widget kurz vom Home-Bildschirm und füge es erneut hinzu. Stelle ausserdem sicher, dass du in Inbox eingeloggt bist."],
+  ["Wie schnell erhalte ich eine Antwort?", "Support-Anfragen werden in der Regel innerhalb von 1 bis 3 Werktagen beantwortet."],
+  ["Welche Informationen soll ich mitsenden?", "Nenne deine Schule, dein Gerät und deine iOS-Version. Eine kurze Beschreibung, die letzten Schritte vor dem Fehler und ein Screenshot helfen uns, das Problem schneller nachzustellen."],
 ];
 
 export default function SupportPage() {
@@ -29,8 +29,8 @@ export default function SupportPage() {
         <section className="section support-cards">
           <div className="container support-grid">
             <a href="#faq"><span>?</span><h2>Antwort finden</h2><p>Die häufigsten Fragen kurz und verständlich erklärt.</p><b>Zu den FAQ →</b></a>
-            <a href="mailto:support@inbox-app.ch"><span>↗</span><h2>Uns schreiben</h2><p>Beschreibe dein Problem und wir kümmern uns darum.</p><b>E-Mail öffnen →</b></a>
-            <a href="mailto:support@inbox-app.ch?subject=Feedback%20zu%20Inbox"><span>✦</span><h2>Idee teilen</h2><p>Dein Feedback hilft, Inbox für alle besser zu machen.</p><b>Feedback senden →</b></a>
+            <a href="mailto:yannis.66678@gmail.com?subject=Inbox%20Support"><span>↗</span><h2>Uns schreiben</h2><p>Beschreibe dein Problem und wir kümmern uns darum.</p><b>E-Mail öffnen →</b></a>
+            <a href="mailto:yannis.66678@gmail.com?subject=Feedback%20zu%20Inbox"><span>✦</span><h2>Idee teilen</h2><p>Dein Feedback hilft, Inbox für alle besser zu machen.</p><b>Feedback senden →</b></a>
           </div>
         </section>
         <section id="faq" className="section faq-section">
@@ -49,8 +49,9 @@ export default function SupportPage() {
             </div>
             <div className="contact-banner">
               <div><h2>Noch nicht gelöst?</h2><p>Schreib uns mit deiner Schule, deinem Gerät und einer kurzen Beschreibung.</p></div>
-              <a className="button button-light" href="mailto:support@inbox-app.ch">support@inbox-app.ch</a>
+              <a className="button button-light" href="mailto:yannis.66678@gmail.com?subject=Inbox%20Support">E-Mail an Yannis</a>
             </div>
+            <p className="support-updated">Zuletzt aktualisiert: 23. März 2026 · Verantwortlicher: Yannis Ress</p>
           </div>
         </section>
       </main>

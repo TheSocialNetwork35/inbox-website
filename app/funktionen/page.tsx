@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import {
-  AppPreview,
+  AppScreenshot,
   FeatureIcon,
   PageHero,
   SiteFooter,
@@ -47,7 +47,7 @@ export default function FeaturesPage() {
                 <li>✓ Schneller Sprung zu heute</li>
               </ul>
             </div>
-            <div className="showcase-visual"><AppPreview variant="plan" /></div>
+            <div className="showcase-visual"><AppScreenshot screen="plan" /></div>
           </div>
         </section>
 
@@ -64,7 +64,7 @@ export default function FeaturesPage() {
                 <li>✓ Entwicklung je Fach</li>
               </ul>
             </div>
-            <div className="showcase-visual"><AppPreview variant="grades" /></div>
+            <div className="showcase-visual"><AppScreenshot screen="grades" /></div>
           </div>
         </section>
 
@@ -81,7 +81,7 @@ export default function FeaturesPage() {
                 <li>✓ Semesterweise Übersicht</li>
               </ul>
             </div>
-            <div className="showcase-visual"><AppPreview variant="absences" /></div>
+            <div className="showcase-visual"><AppScreenshot screen="absences" /></div>
           </div>
         </section>
 
