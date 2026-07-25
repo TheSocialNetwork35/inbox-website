@@ -46,7 +46,6 @@ export function SiteHeader() {
           <a href="/support">Support</a>
         </nav>
         <div className="nav-actions">
-          <a href="/support" className="nav-support">Hilfe</a>
           <a href={APP_STORE_URL} target="_blank" rel="noreferrer" className="nav-download">App laden <span>↗</span></a>
         </div>
         <details className="mobile-menu">
@@ -107,9 +106,13 @@ export function StoreButton({ light = false }: { light?: boolean }) {
       className={`store-button ${light ? "store-button-light" : ""}`}
       aria-label="Inbox im App Store laden"
     >
-      <span className="apple" aria-hidden="true">◆</span>
-      <span><small>Laden im</small><strong>App Store</strong></span>
-      <i aria-hidden="true">↗</i>
+      <span className="apple" aria-hidden="true">
+        <svg viewBox="0 0 384 512" role="presentation">
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.8 77.3 13.2 35.8 60.8 123.6 110.5 122.2 26-.6 44.3-18.4 78.2-18.4 32.9 0 49.8 18.4 78.7 18.4 50.1-.7 93.9-79.2 106.4-115.1-67.1-31.6-63.9-87.5-63.9-89.2zm-58.9-164.2c24.3-28.9 22.1-55.2 21.4-64.5-21.5 1.2-46.4 14.6-60.6 31.1-15.6 17.7-24.8 39.6-22.8 63.9 23.2 1.8 44.4-10.2 62-30.5z" />
+        </svg>
+      </span>
+      <span className="store-copy"><small>Laden im</small><strong>App Store</strong></span>
+      <i className="store-arrow" aria-hidden="true">↗</i>
     </a>
   );
 }

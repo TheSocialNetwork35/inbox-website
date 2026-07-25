@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useId, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import "./DotField.css";
 
 type DotFieldProps = {
@@ -10,12 +10,10 @@ type DotFieldProps = {
   cursorForce?: number;
   bulgeOnly?: boolean;
   bulgeStrength?: number;
-  glowRadius?: number;
   sparkle?: boolean;
   waveAmplitude?: number;
   gradientFrom?: string;
   gradientTo?: string;
-  glowColor?: string;
   className?: string;
 };
 
@@ -39,16 +37,13 @@ export const DotField = memo(function DotField({
   cursorForce = 0.1,
   bulgeOnly = true,
   bulgeStrength = 67,
-  glowRadius = 160,
   sparkle = false,
   waveAmplitude = 0,
   gradientFrom = "rgba(181, 124, 255, 0.68)",
   gradientTo = "rgba(203, 181, 255, 0.42)",
-  glowColor = "#8b6cff",
   className = "",
 }: DotFieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const glowRef = useRef<SVGCircleElement>(null);
   const dotsRef = useRef<Dot[]>([]);
   const mouseRef = useRef({
     x: -9999,
@@ -59,13 +54,10 @@ export const DotField = memo(function DotField({
   });
   const rafRef = useRef<number | null>(null);
   const sizeRef = useRef({ w: 0, h: 0, offsetX: 0, offsetY: 0 });
-  const glowOpacity = useRef(0);
   const engagement = useRef(0);
-  const glowId = `dot-field-glow-${useId().replaceAll(":", "")}`;
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const glowEl = glowRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
@@ -137,14 +129,6 @@ export const DotField = memo(function DotField({
       const { w, h } = sizeRef.current;
       const targetEngagement = reduceMotion ? 0 : Math.min(mouse.speed / 5, 1);
       engagement.current += (targetEngagement - engagement.current) * 0.06;
-      glowOpacity.current += (engagement.current - glowOpacity.current) * 0.08;
-
-      if (glowEl) {
-        glowEl.setAttribute("cx", String(mouse.x));
-        glowEl.setAttribute("cy", String(mouse.y));
-        glowEl.style.opacity = String(glowOpacity.current);
-      }
-
       ctx.clearRect(0, 0, w, h);
       const gradient = ctx.createLinearGradient(0, 0, w, h);
       gradient.addColorStop(0, gradientFrom);
@@ -233,21 +217,6 @@ export const DotField = memo(function DotField({
   return (
     <div className={`dot-field-container ${className}`.trim()}>
       <canvas ref={canvasRef} />
-      <svg aria-hidden="true">
-        <defs>
-          <radialGradient id={glowId}>
-            <stop offset="0%" stopColor={glowColor} />
-            <stop offset="100%" stopColor="transparent" />
-          </radialGradient>
-        </defs>
-        <circle
-          ref={glowRef}
-          cx="-9999"
-          cy="-9999"
-          r={glowRadius}
-          fill={`url(#${glowId})`}
-        />
-      </svg>
     </div>
   );
 });

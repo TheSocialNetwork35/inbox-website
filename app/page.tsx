@@ -55,7 +55,6 @@ export default function Home() {
               dotRadius={2.1}
               dotSpacing={14}
               bulgeStrength={67}
-              glowRadius={190}
               sparkle
             />
           </div>
@@ -252,13 +251,12 @@ export default function Home() {
 
         <section className="section final-cta">
           <DotField
-            dotRadius={1.5}
-            dotSpacing={17}
-            bulgeStrength={48}
-            glowRadius={130}
-            gradientFrom="rgba(255,255,255,.17)"
-            gradientTo="rgba(255,255,255,.05)"
-            glowColor="#6d4cff"
+            dotRadius={2}
+            dotSpacing={16}
+            bulgeStrength={54}
+            gradientFrom="rgba(181,155,255,.46)"
+            gradientTo="rgba(255,255,255,.18)"
+            sparkle
           />
           <div className="container cta-inner">
             <img src="/assets/app-icon.png" alt="Inbox App Icon" />
