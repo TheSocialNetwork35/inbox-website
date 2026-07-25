@@ -93,6 +93,21 @@ export function MotionController() {
     }
 
     if (reduceMotion || initialFragment) {
+      if (initialFragment) {
+        root.classList.add("fragment-navigation");
+        let initialId = "";
+        try {
+          initialId = decodeURIComponent(initialFragment.replace(/^#/, ""));
+        } catch {
+          initialId = "";
+        }
+        const initialTarget = initialId
+          ? document.getElementById(initialId)
+          : null;
+        initialTarget?.setAttribute("tabindex", "-1");
+        initialTarget?.focus({ preventScroll: true });
+        clearFragmentMode();
+      }
       revealItems.forEach((item) => item.classList.add("is-visible"));
       root.classList.add("intro-ready");
       return () => {

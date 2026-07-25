@@ -62,7 +62,6 @@ export default function RootLayout({
       if (!hash) return;
 
       window.__inboxInitialFragment = hash;
-      document.documentElement.classList.add("fragment-navigation");
       window.history.replaceState(
         window.history.state,
         "",
@@ -74,27 +73,17 @@ export default function RootLayout({
         try {
           id = decodeURIComponent(hash.slice(1));
         } catch {
-          document.documentElement.classList.remove("fragment-navigation");
           return;
         }
 
         const target = document.getElementById(id);
-        if (!target) {
-          document.documentElement.classList.remove("fragment-navigation");
-          return;
-        }
+        if (!target) return;
 
         window.scrollTo({
           top: Math.max(0, target.getBoundingClientRect().top + window.scrollY - 24),
           behavior: "auto"
         });
-        target.setAttribute("tabindex", "-1");
-        target.focus({ preventScroll: true });
         window.__inboxFragmentHandled = true;
-        window.setTimeout(
-          () => document.documentElement.classList.remove("fragment-navigation"),
-          140
-        );
       };
 
       if (document.readyState === "loading") {
