@@ -24,10 +24,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Inbox" }],
   creator: "Inbox",
   alternates: { canonical: "/" },
-  icons: {
-    icon: "/assets/inbox-favicon.png",
-    apple: "/assets/inbox-favicon.png",
-  },
   openGraph: {
     type: "website",
     locale: "de_CH",
@@ -118,6 +114,8 @@ export default function RootLayout({
   return (
     <html lang="de-CH">
       <head>
+        <link rel="icon" href="/assets/inbox-favicon.png?v=2" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/assets/inbox-favicon.png?v=2" />
         <script dangerouslySetInnerHTML={{ __html: fragmentBootstrap }} />
       </head>
       <body>
