@@ -16,6 +16,16 @@
 }
 
 * { box-sizing: border-box; }
+::selection {
+  color: #121216;
+  background: #b9adff;
+  text-shadow: none;
+}
+::-moz-selection {
+  color: #121216;
+  background: #b9adff;
+  text-shadow: none;
+}
 html {
   min-height: 100%;
   scroll-behavior: auto;
