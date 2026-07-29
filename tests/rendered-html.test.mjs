@@ -75,5 +75,7 @@ test("ships production metadata, motion accessibility, and Pages output", async 
   assert.match(robots, /Sitemap:/);
   assert.match(sitemap, /<urlset/);
   await access(new URL("../pages-dist/assets/app-icon.png", import.meta.url));
+  await access(new URL("../pages-dist/assets/inbox-logo.png", import.meta.url));
+  await access(new URL("../pages-dist/assets/inbox-favicon.png", import.meta.url));
   await assert.rejects(access(new URL("../app/_sites-preview", root)));
 });

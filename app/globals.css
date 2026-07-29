@@ -73,7 +73,7 @@ img { display: block; max-width: 100%; }
 }
 .nav-inner { height: 80px; display: flex; align-items: center; gap: 48px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 20px; font-weight: 730; letter-spacing: -.03em; }
-.brand img { width: 34px; height: 34px; border-radius: 8px; }
+.brand img { width: 40px; height: 30px; object-fit: contain; }
 .desktop-nav { display: flex; align-items: center; gap: 34px; margin-left: auto; }
 .desktop-nav a { color: rgba(255,255,255,.68); font-size: 14px; font-weight: 560; transition: color 160ms ease; }
 .desktop-nav a:hover { color: white; }

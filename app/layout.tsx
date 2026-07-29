@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   creator: "Inbox",
   alternates: { canonical: "/" },
   icons: {
-    icon: "/assets/app-icon.png",
-    apple: "/assets/app-icon.png",
+    icon: "/assets/inbox-favicon.png",
+    apple: "/assets/inbox-favicon.png",
   },
   openGraph: {
     type: "website",

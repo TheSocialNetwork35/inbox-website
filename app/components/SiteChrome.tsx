@@ -37,7 +37,7 @@ export function SiteHeader() {
     <header className={`site-header${hidden ? " nav-hidden" : ""}${scrolled ? " nav-scrolled" : ""}`}>
       <div className="container nav-inner">
         <a href="/" className="brand" aria-label="Inbox Startseite">
-          <img src="/assets/app-icon.png" alt="" />
+          <img src="/assets/inbox-logo.png" alt="" />
           <span>Inbox</span>
         </a>
         <nav className="desktop-nav" aria-label="Hauptnavigation">
@@ -70,7 +70,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <a href="/" className="brand"><img src="/assets/app-icon.png" alt="" /><span>Inbox</span></a>
+          <a href="/" className="brand"><img src="/assets/inbox-logo.png" alt="" /><span>Inbox</span></a>
           <p>Deine Schule. Alles im Blick.</p>
         </div>
         <div>
