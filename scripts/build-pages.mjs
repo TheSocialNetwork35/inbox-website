@@ -9,7 +9,7 @@ workerUrl.searchParams.set("pages-build", `${Date.now()}`);
 
 const { default: worker } = await import(workerUrl.href);
 const routes = ["/", "/funktionen", "/schulen", "/support", "/kontakt", "/datenschutz", "/404"];
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbox-app.ch";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbx.page";
 
 await rm(outputRoot, { recursive: true, force: true });
 await mkdir(outputRoot, { recursive: true });

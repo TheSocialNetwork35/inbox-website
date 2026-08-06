@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbox-app.ch";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbx.page";
   return [
     ["", 1],
     ["/funktionen", 0.9],

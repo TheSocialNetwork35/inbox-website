@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { MotionController } from "./components/MotionController";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbox-app.ch";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://inbx.page";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

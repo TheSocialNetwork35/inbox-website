@@ -40,7 +40,7 @@ npm run deploy:pages
 ```
 
 Set `NEXT_PUBLIC_SITE_URL` to the canonical production origin before the final
-deployment. The fallback is `https://inbox-app.ch`.
+deployment. The fallback is `https://inbx.page`.
 
 ## Content to finalize before launch
 

@@ -73,8 +73,10 @@ test("ships production metadata, motion accessibility, and Pages output", async 
   assert.match(pagesIndex, /Inbox/);
   assert.match(pagesIndex, /href="\/assets\/inbox-favicon\.png\?v=2"/);
   assert.match(pages404, /Seite fehlt im Stundenplan/);
-  assert.match(robots, /Sitemap:/);
-  assert.match(sitemap, /<urlset/);
+  assert.match(robots, /Sitemap: https:\/\/inbx\.page\/sitemap\.xml/);
+  assert.match(sitemap, /<loc>https:\/\/inbx\.page<\/loc>/);
+  assert.doesNotMatch(robots, /inbox-app\.ch/);
+  assert.doesNotMatch(sitemap, /inbox-app\.ch/);
   await access(new URL("../pages-dist/assets/app-icon.png", import.meta.url));
   await access(new URL("../pages-dist/assets/inbox-favicon.png", import.meta.url));
   await assert.rejects(access(new URL("../app/_sites-preview", root)));
