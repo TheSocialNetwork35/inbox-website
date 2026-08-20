@@ -87,7 +87,8 @@ export function SiteFooter() {
         </div>
         <div>
           <h3>Rechtliches</h3>
-          <a href="/datenschutz">Datenschutz</a>
+          <a href="/datenschutz/app">Datenschutz App</a>
+          <a href="/datenschutz/website">Datenschutz Website</a>
           <a href="/datenschutz#impressum">Impressum</a>
         </div>
       </div>

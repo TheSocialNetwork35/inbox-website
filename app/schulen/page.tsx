@@ -44,7 +44,7 @@ export default function SchoolsPage() {
               <li><span>3</span><div><b>Sicher anmelden</b><p>Nutze deinen bestehenden Schulzugang – danach ist alles bereit.</p></div></li>
             </ol>
           </div>
-          <div className="center-action"><a className="text-link dark-link" href="/datenschutz">Wie Inbox deine Daten schützt →</a></div>
+          <div className="center-action"><a className="text-link dark-link" href="/datenschutz/app">Wie die Inbox App deine Daten schützt →</a></div>
         </section>
       </main>
       <SiteFooter />

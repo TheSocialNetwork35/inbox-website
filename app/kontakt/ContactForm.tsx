@@ -127,7 +127,7 @@ export function ContactForm() {
           Beim Absenden werden deine Angaben zur Bearbeitung über Formspree
           übertragen. Bitte sende keine Passwörter oder besonders
           schützenswerten Daten. Mehr dazu im{" "}
-          <a href="/datenschutz">Datenschutz</a>.
+          <a href="/datenschutz/website#kontaktformular">Datenschutz der Website</a>.
         </p>
         <button
           className="contact-submit"

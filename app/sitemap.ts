@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/support", 0.7],
     ["/kontakt", 0.7],
     ["/datenschutz", 0.5],
+    ["/datenschutz/app", 0.6],
+    ["/datenschutz/website", 0.5],
   ].map(([path, priority]) => ({
     url: `${base}${path}`,
     lastModified: new Date(),

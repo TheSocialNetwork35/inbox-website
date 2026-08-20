@@ -31,7 +31,9 @@ test("server-renders every public route", async () => {
     ["/schulen", /Deine Schule/],
     ["/support", /Wie können wir helfen/],
     ["/kontakt", /Deine Idee gehört/],
-    ["/datenschutz", /Deine Daten verdienen Klarheit/],
+    ["/datenschutz", /Zwei Angebote/],
+    ["/datenschutz/app", /Was die App mit deinen Daten macht/],
+    ["/datenschutz/website", /Was beim Besuch dieser Website passiert/],
     ["/404", /Diese Seite fehlt im Stundenplan/],
   ];
 
@@ -50,7 +52,7 @@ test("ships production metadata, motion accessibility, and Pages output", async 
     await Promise.all([
       readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/components/MotionController.tsx", import.meta.url), "utf8"),
-      readFile(new URL("../app/datenschutz/page.tsx", import.meta.url), "utf8"),
+      readFile(new URL("../app/datenschutz/website/page.tsx", import.meta.url), "utf8"),
       readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
       readFile(new URL("../package.json", import.meta.url), "utf8"),
       readFile(new URL("../pages-dist/index.html", import.meta.url), "utf8"),
