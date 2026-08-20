@@ -28,8 +28,8 @@ export default function PrivacyOverviewPage() {
                 <span className="legal-kicker">IOS-APP</span>
                 <h2>Datenschutz der Inbox App</h2>
                 <p>
-                  Schulkonto, lokale Speicherung, Stundenplan- und Notendaten,
-                  Widgets sowie optionale Push-Mitteilungen.
+                  Direkter TAM-Zugriff, lokale Speicherung, Widgets und
+                  Mitteilungen ohne eigenen App-Server.
                 </p>
                 <b>Zur App-Datenschutzerklärung →</b>
               </a>

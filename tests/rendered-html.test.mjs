@@ -32,7 +32,7 @@ test("server-renders every public route", async () => {
     ["/support", /Wie können wir helfen/],
     ["/kontakt", /Deine Idee gehört/],
     ["/datenschutz", /Zwei Angebote/],
-    ["/datenschutz/app", /Was die App mit deinen Daten macht/],
+    ["/datenschutz/app", /Deine Schuldaten bleiben bei dir und TAM/],
     ["/datenschutz/website", /Was beim Besuch dieser Website passiert/],
     ["/404", /Diese Seite fehlt im Stundenplan/],
   ];
