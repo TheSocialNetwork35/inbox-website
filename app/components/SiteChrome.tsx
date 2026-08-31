@@ -95,6 +95,7 @@ export function SiteFooter() {
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} Inbox</span>
         <span>Mit Sorgfalt in der Schweiz gestaltet.</span>
+        <span className="footer-credit">Made by <a href="https://zhstudio.ch">ZhStudio</a></span>
       </div>
     </footer>
   );

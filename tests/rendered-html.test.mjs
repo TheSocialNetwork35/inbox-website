@@ -43,6 +43,7 @@ test("server-renders every public route", async () => {
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
     const html = await response.text();
     assert.match(html, expected);
+    assert.match(html, /Made by <a href="https:\/\/zhstudio\.ch">ZhStudio<\/a>/);
     assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
   }
 });
