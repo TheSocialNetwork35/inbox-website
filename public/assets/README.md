@@ -10,3 +10,7 @@ The website currently uses:
 - `app-icon-violet.png`, `app-icon-blue.png`, and `app-icon-green.png` as ready
   alternatives for future campaigns
 - `og.png` at the `public` root for social previews
+
+## Android screenshots
+
+`/assets/screenshots/android/` contains native 1440 × 3200 PNG captures from the Android app: `plan.png`, `grades.png`, and `grades-dark.png`. These show synthetic demo data, not the real account used for verification. Login, account details, absence records, app-icon selection and other settings captures are intentionally not published here. Preserve the screenshots’ aspect ratio when displaying them.

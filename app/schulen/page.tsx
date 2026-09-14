@@ -39,7 +39,7 @@ export default function SchoolsPage() {
           <div className="container connection-grid">
             <div><span className="kicker">SO FUNKTIONIERT’S</span><h2>In drei Schritten verbunden.</h2></div>
             <ol>
-              <li><span>1</span><div><b>Inbox laden</b><p>Installiere die App kostenlos auf deinem iPhone oder iPad.</p></div></li>
+              <li><span>1</span><div><b>Inbox laden</b><p>Nutze Inbox auf deinem iPhone, iPad oder Android-Smartphone.</p></div></li>
               <li><span>2</span><div><b>Schule auswählen</b><p>Wähle deine Schule aus der Liste der unterstützten Systeme.</p></div></li>
               <li><span>3</span><div><b>Sicher anmelden</b><p>Nutze deinen bestehenden Schulzugang – danach ist alles bereit.</p></div></li>
             </ol>

@@ -80,12 +80,18 @@ export default function AppPrivacyPage() {
               <section id="lokal">
                 <h2>2. Speicherung auf deinem Gerät</h2>
                 <p>
-                  Das Passwort wird in der iOS-Keychain gespeichert und ist nur
+                  Unter iOS wird das Passwort in der Keychain gespeichert und ist nur
                   auf diesem Gerät im entsperrten Zustand zugänglich.
                   Benutzernamen, Sitzungsinformationen, Einstellungen und
                   abgerufene Schuldaten können lokal im App-Speicher oder im
                   gemeinsamen App-Container für Widgets zwischengespeichert
                   werden.
+                </p>
+                <p>
+                  Unter Android werden Zugangsdaten, Einstellungen und
+                  zwischengespeicherte Schuldaten lokal verschlüsselt gespeichert.
+                  Der Schlüssel wird durch den Android Keystore geschützt.
+                  Diese App-Dateien sind von Android-Backups ausgeschlossen.
                 </p>
                 <p>
                   Diese lokale Speicherung ermöglicht die Offline-Anzeige,
@@ -98,17 +104,18 @@ export default function AppPrivacyPage() {
                 <h2>3. Mitteilungen funktionieren lokal</h2>
                 <p>
                   Inbox verwendet keine Remote-Push-Mitteilungen und registriert
-                  dein Gerät nicht beim Apple Push Notification Service für
-                  Inbox. Es wird kein Geräte-Token erzeugt oder an den
+                  dein Gerät weder beim Apple Push Notification Service noch
+                  bei Firebase Cloud Messaging für Inbox. Es wird kein Geräte-Token an den
                   Entwickler übermittelt.
                 </p>
                 <p>
                   Wenn du Mitteilungen erlaubst, prüft die App beim Öffnen oder
                   Aktualisieren neue Noten direkt bei TAM. Erkennt sie dabei
-                  eine neue Note, erstellt iOS die Mitteilung lokal auf deinem
+                  eine neue Note, erstellt das Betriebssystem die Mitteilung lokal auf deinem
                   Gerät. Inhalt, Fach und Name verlassen dafür das Gerät nicht.
-                  Die Berechtigung kannst du jederzeit in den iOS-Einstellungen
-                  ändern.
+                  Unter Android kann die App neue Noten auch über vom System
+                  geplante Hintergrundabfragen erkennen. Die Berechtigung kannst
+                  du jederzeit in den Mitteilungseinstellungen von iOS oder Android ändern.
                 </p>
               </section>
 
@@ -137,12 +144,18 @@ export default function AppPrivacyPage() {
               <section id="loeschung">
                 <h2>6. Löschen deiner lokalen Daten</h2>
                 <p>
-                  Beim Abmelden oder Entfernen eines Kontos löscht Inbox dessen
+                  Unter iOS löscht Inbox beim Abmelden oder Entfernen eines Kontos dessen
                   Passwort aus der Keychain und entfernt die zugehörigen lokal
                   gespeicherten Kontodaten. App-Dateien und Caches werden beim
                   Löschen der App nach den Regeln von iOS entfernt. Wenn du auch
                   das Keychain-Passwort zuverlässig entfernen möchtest, melde
                   dich vor dem Löschen der App ab.
+                </p>
+                <p>
+                  Unter Android entfernt das Abmelden die gespeicherten
+                  Zugangsdaten des Kontos. Um auch alle lokalen Zwischenspeicher
+                  und Einstellungen zu löschen, kannst du die App-Daten in den
+                  Android-Einstellungen löschen oder die App deinstallieren.
                 </p>
               </section>
 

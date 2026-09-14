@@ -5,7 +5,7 @@ import { PageHero, SiteFooter, SiteHeader } from "../components/SiteChrome";
 export const metadata: Metadata = {
   title: "Datenschutz",
   description:
-    "Datenschutz bei Inbox – klar getrennt für die iOS-App und die Website mit Kontaktformular.",
+    "Datenschutz bei Inbox – klar getrennt für die App auf iOS und Android und die Website mit Kontaktformular.",
   alternates: { canonical: "/datenschutz" },
 };
 

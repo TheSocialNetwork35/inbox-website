@@ -47,7 +47,7 @@ export function SiteHeader() {
           <a href="/kontakt">Kontakt</a>
         </nav>
         <div className="nav-actions">
-          <a href={APP_STORE_URL} target="_blank" rel="noreferrer" className="nav-download">App laden <span>↗</span></a>
+          <a href="/#download" className="nav-download">App laden <span>↗</span></a>
         </div>
         <details className="mobile-menu">
           <summary aria-label="Menü öffnen"><span /><span /></summary>
@@ -57,7 +57,7 @@ export function SiteHeader() {
             <a href="/support">Support</a>
             <a href="/kontakt">Kontakt</a>
             <a href="/datenschutz">Datenschutz</a>
-            <a href={APP_STORE_URL} target="_blank" rel="noreferrer">App laden ↗</a>
+            <a href="/#download">App laden ↗</a>
           </div>
         </details>
       </div>
@@ -71,13 +71,13 @@ export function SiteFooter() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <a href="/" className="brand"><img src="/assets/app-icon.png" alt="" /><span>Inbox</span></a>
-          <p>Deine Schule. Alles im Blick.</p>
+          <p>Deine Schule. Alles im Blick. Auf iOS und Android.</p>
         </div>
         <div>
           <h3>Entdecken</h3>
           <a href="/funktionen">Funktionen</a>
           <a href="/schulen">Schulen</a>
-          <a href={APP_STORE_URL} target="_blank" rel="noreferrer">App laden</a>
+          <a href="/#download">Inbox für iOS &amp; Android</a>
         </div>
         <div>
           <h3>Hilfe</h3>
@@ -119,6 +119,10 @@ export function StoreButton({ light = false }: { light?: boolean }) {
       <i className="store-arrow" aria-hidden="true">↗</i>
     </a>
   );
+}
+
+export function AndroidButton({ light = false }: { light?: boolean }) {
+  return <a href="/#android" className={`button ${light ? "button-light" : "button-android"}`}>Android entdecken <span aria-hidden="true">→</span></a>;
 }
 
 export function FeatureIcon({ name }: { name: string }) {
@@ -164,26 +168,30 @@ export function AppPreview({
 
 export function AppScreenshot({
   screen,
+  platform = "ios",
   className = "",
   priority = false,
 }: {
-  screen: "plan" | "grades" | "trend" | "absences";
+  screen: "plan" | "grades" | "trend" | "absences" | "grades-dark";
+  platform?: "ios" | "android";
   className?: string;
   priority?: boolean;
 }) {
   const labels = {
-    plan: "Inbox Stundenplan im Dark Mode",
-    grades: "Inbox Notenübersicht im Dark Mode",
-    trend: "Inbox Leistungsverlauf im Dark Mode",
-    absences: "Inbox Absenzenübersicht im Dark Mode",
+    plan: "Stundenplan",
+    grades: "Notenübersicht",
+    trend: "Leistungsverlauf",
+    absences: "Absenzenübersicht",
+    "grades-dark": "Notenübersicht im Dunkelmodus",
   };
+  const android = platform === "android";
   return (
-    <figure className={`real-app-shot ${className}`.trim()}>
+    <figure className={`real-app-shot ${android ? "android-app-shot" : ""} ${className}`.trim()}>
       <img
-        src={`/assets/screenshots/${screen}-dark.png`}
-        alt={labels[screen]}
-        width="1095"
-        height="2239"
+        src={android ? `/assets/screenshots/android/${screen}.png` : `/assets/screenshots/${screen}-dark.png`}
+        alt={`Inbox ${labels[screen]} auf ${android ? "Android, mit Beispieldaten" : "iOS im Dark Mode"}`}
+        width={android ? 1440 : 1095}
+        height={android ? 3200 : 2239}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
       />

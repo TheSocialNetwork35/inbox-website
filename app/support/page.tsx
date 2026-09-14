@@ -9,11 +9,12 @@ export const metadata: Metadata = {
 };
 
 const faqs = [
+  ["Gibt es Inbox für mein Smartphone?", "Inbox unterstützt iOS und Android. Du kannst Inbox auf deinem iPhone, iPad oder Android-Smartphone nutzen. Voraussetzung ist ein Konto bei einer unterstützten Schule; die Übersicht findest du unter Schulen."],
   ["Das Login schlägt fehl. Was kann ich tun?", "Prüfe Benutzername und Passwort deines Schulkontos. Falls das Login weiterhin fehlschlägt, schreib uns eine kurze Problembeschreibung und hänge wenn möglich einen Screenshot an."],
   ["Warum fehlen Noten nach dem Semesterwechsel?", "Nach einem Semesterwechsel können Noten kurz verzögert erscheinen. Öffne die App neu oder melde dich einmal ab und wieder an, damit die Daten vollständig neu geladen werden."],
   ["Meine Widgets aktualisieren sich nicht.", "Entferne das Widget kurz vom Home-Bildschirm und füge es erneut hinzu. Stelle ausserdem sicher, dass du in Inbox eingeloggt bist."],
   ["Wie schnell erhalte ich eine Antwort?", "Support-Anfragen werden in der Regel innerhalb von 1 bis 3 Werktagen beantwortet."],
-  ["Welche Informationen soll ich mitsenden?", "Nenne deine Schule, dein Gerät und deine iOS-Version. Eine kurze Beschreibung, die letzten Schritte vor dem Fehler und ein Screenshot helfen uns, das Problem schneller nachzustellen."],
+  ["Welche Informationen soll ich mitsenden?", "Nenne deine Schule, dein Gerät und deine iOS- oder Android-Version. Eine kurze Beschreibung, die letzten Schritte vor dem Fehler und ein Screenshot helfen uns, das Problem schneller nachzustellen."],
 ];
 
 export default function SupportPage() {

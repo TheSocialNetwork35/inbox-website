@@ -80,6 +80,16 @@ test("ships production metadata, motion accessibility, and Pages output", async 
   assert.match(sitemap, /<loc>https:\/\/inbx\.page<\/loc>/);
   assert.doesNotMatch(robots, /inbox-app\.ch/);
   assert.doesNotMatch(sitemap, /inbox-app\.ch/);
+  assert.match(pagesIndex, /iOS &amp; Android/);
+  assert.match(pagesIndex, /id="android"/);
+  assert.match(pagesIndex, /id="download"/);
+  for (const name of ["plan", "grades", "grades-dark"]) {
+    const asset = `/assets/screenshots/android/${name}.png`;
+    assert.ok(pagesIndex.includes(asset), `Android screenshot rendered: ${name}`);
+    await access(new URL(`../pages-dist${asset}`, import.meta.url));
+  }
+  assert.doesNotMatch(pagesIndex, /screenshots\/android\/(icons|settings|login|absences)\.png/);
+  assert.match(layout, /operatingSystem: "iOS, iPadOS, Android"/);
   await access(new URL("../pages-dist/assets/app-icon.png", import.meta.url));
   await access(new URL("../pages-dist/assets/inbox-favicon.png", import.meta.url));
   await assert.rejects(access(new URL("../app/_sites-preview", root)));

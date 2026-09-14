@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SpotlightCard from "../components/SpotlightCard";
 import {
+  AndroidButton,
   AppScreenshot,
   FeatureIcon,
   PageHero,
@@ -12,7 +13,7 @@ import {
 export const metadata: Metadata = {
   title: "Funktionen",
   description:
-    "Entdecke Stundenplan, Notenübersicht, Pluspunkte, Prüfungen, Absenzen und Benachrichtigungen in Inbox.",
+    "Entdecke Stundenplan, Notenübersicht, Pluspunkte, Prüfungen, Absenzen und Benachrichtigungen in Inbox für iOS und Android.",
   alternates: { canonical: "/funktionen" },
 };
 
@@ -36,9 +37,12 @@ export default function FeaturesPage() {
         <PageHero
           kicker="FUNKTIONEN"
           title="Mehr Überblick. Weniger Aufwand."
-          lead="Inbox denkt deinen Schulalltag vom ersten Blick bis zum letzten Prüfungstermin – mit genau den Informationen, die gerade zählen."
+          lead="Inbox denkt deinen Schulalltag vom ersten Blick bis zum letzten Prüfungstermin – auf iOS und Android, mit genau den Informationen, die gerade zählen."
         >
-          <StoreButton light />
+          <div className="platform-actions">
+            <StoreButton light />
+            <AndroidButton light />
+          </div>
         </PageHero>
 
         <section className="section feature-showcase">
@@ -54,7 +58,7 @@ export default function FeaturesPage() {
                 <li>✓ Schneller Sprung zu heute</li>
               </ul>
             </div>
-            <div className="showcase-visual"><AppScreenshot screen="plan" /></div>
+            <div className="showcase-visual"><AppScreenshot screen="plan" platform="android" /></div>
           </div>
         </section>
 

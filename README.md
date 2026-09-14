@@ -1,7 +1,7 @@
 # Inbox App Website
 
 Production-ready, multi-page marketing website for Inbox. The visual language
-mirrors the iOS app across timetable, grades, plus points, exams, and absences.
+showcases the iOS and Android apps across timetable, grades, plus points, exams, and absences.
 
 ## Local development
 
@@ -56,3 +56,9 @@ deployment. The fallback is `https://inbx.page`.
 Add future screenshots, school marks, press images, and campaign assets under
 `public/assets/`. See `public/assets/README.md` for naming guidance. The custom
 social preview lives at `public/og.png`.
+
+## iOS and Android showcase
+
+The homepage has a keyboard-accessible iOS/Android screenshot switch, with Android selected initially. Android links open that section; the existing App Store link still opens the iOS listing. No Google Play listing or Android download URL is invented. The gallery publishes only the Android timetable, grades overview and dark mode with synthetic data. Account information and app-icon/settings screenshots are excluded.
+
+Validated with the production Pages build, rendered-route/asset tests, ESLint, a frontend-only TypeScript check and browser checks at 390, 768 and 1440 pixels. Local visual captures are in `output/playwright/` (ignored by Git). The repository-wide TypeScript check still requires its existing Cloudflare runtime declarations (`cloudflare:workers`, `Fetcher`, `D1Database`); the changed frontend type-checks successfully.

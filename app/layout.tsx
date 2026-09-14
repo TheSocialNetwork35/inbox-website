@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Inbox",
   },
   description:
-    "Inbox vereint Stundenplan, Noten, Pluspunkte, Prüfungen und Absenzen in einer modernen App für Schweizer Schülerinnen und Schüler.",
+    "Inbox vereint Stundenplan, Noten, Pluspunkte, Prüfungen und Absenzen in einer modernen App für iOS und Android – für Schülerinnen und Schüler an unterstützten Schweizer Schulen.",
   keywords: [
     "Schulapp",
     "Stundenplan App",
@@ -31,13 +31,13 @@ export const metadata: Metadata = {
     siteName: "Inbox",
     title: "Inbox – Alles für deinen Schulalltag.",
     description:
-      "Stundenplan, Noten, Prüfungen und Absenzen in einer App, die nicht nach Verwaltung aussieht.",
+      "Stundenplan, Noten, Prüfungen und Absenzen für deinen Schulalltag – auf iOS und Android.",
     images: [{ url: "/og-v2.png", width: 1200, height: 630, alt: "Inbox – Alles für deinen Schulalltag" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Inbox – Alles für deinen Schulalltag.",
-    description: "Deine Schule. Klar, schnell und an einem Ort.",
+    description: "Deine Schule. Klar, schnell und an einem Ort – auf iOS und Android.",
     images: ["/og-v2.png"],
   },
   robots: { index: true, follow: true },
@@ -99,7 +99,7 @@ export default function RootLayout({
     "@type": "SoftwareApplication",
     name: "Inbox",
     applicationCategory: "EducationalApplication",
-    operatingSystem: "iOS, iPadOS",
+    operatingSystem: "iOS, iPadOS, Android",
     description:
       "Stundenplan, Noten, Pluspunkte, Prüfungen und Absenzen in einer modernen Schul-App.",
     url: siteUrl,

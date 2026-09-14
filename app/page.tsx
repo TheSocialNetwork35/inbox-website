@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element -- local app icon is a pre-sized immutable Cloudflare asset */
+import { PlatformGallery } from "./components/PlatformGallery";
 import { DotField } from "./components/DotField";
 import SpotlightCard from "./components/SpotlightCard";
 import {
+  AndroidButton,
   AppScreenshot,
   FeatureIcon,
   SiteFooter,
@@ -72,18 +74,20 @@ export default function Home() {
                 <span>Schulalltag.</span>
               </h1>
               <p className="hero-lead">
-                Stundenplan, Noten, Prüfungen und Absenzen in einer App, die
-                nicht nach Verwaltung aussieht – sondern nach dir.
+                Stundenplan, Noten, Prüfungen und Absenzen – für deinen Alltag,
+                auf deinem Smartphone. Ob iPhone oder Android: Inbox ist für
+                Schülerinnen und Schüler auf beiden Plattformen da.
               </p>
               <div className="hero-actions">
                 <StoreButton />
+                <AndroidButton />
                 <a href="/funktionen" className="text-link">
                   Funktionen entdecken <span aria-hidden="true">→</span>
                 </a>
               </div>
               <div className="trust-row" aria-label="Vorteile">
-                <span>● Für iPhone &amp; iPad</span>
-                <span>● Sicher verbunden</span>
+                <span>● Für iOS &amp; Android</span>
+                <span>● Für unterstützte Schulen</span>
                 <span>● Schnell eingerichtet</span>
               </div>
             </div>
@@ -190,33 +194,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section app-gallery">
-          <div className="container">
-            <div className="section-heading centered">
-              <span className="kicker">ECHTE APP. ECHTER ÜBERBLICK.</span>
-              <h2>So sieht Schule in Inbox aus.</h2>
-              <p>Dark Mode, klare Hierarchie und genau die Details, die im Schulalltag zählen.</p>
-            </div>
-            <div className="screen-gallery">
-              <article className="screen-gallery-card">
-                <AppScreenshot screen="plan" />
-                <div><span>01</span><h3>Plan</h3><p>Der ganze Tag – inklusive Pausen und Ausfällen.</p></div>
-              </article>
-              <article className="screen-gallery-card">
-                <AppScreenshot screen="grades" />
-                <div><span>02</span><h3>Noten</h3><p>Schnitt, Pluspunkte und Prüfungen auf einen Blick.</p></div>
-              </article>
-              <article className="screen-gallery-card">
-                <AppScreenshot screen="trend" />
-                <div><span>03</span><h3>Verlauf</h3><p>Deine Entwicklung als verständliche Kurve.</p></div>
-              </article>
-              <article className="screen-gallery-card">
-                <AppScreenshot screen="absences" />
-                <div><span>04</span><h3>Absenzen</h3><p>Status, Datum und Fach ohne Rätselraten.</p></div>
-              </article>
-            </div>
-          </div>
-        </section>
+        <PlatformGallery />
 
         <section className="section dark-panel">
           <div className="container split-copy">
@@ -261,7 +239,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section final-cta">
+        <section id="download" className="section final-cta">
           <DotField
             dotRadius={2}
             dotSpacing={16}
@@ -273,9 +251,12 @@ export default function Home() {
           <div className="container cta-inner">
             <img src="/assets/app-icon.png" alt="Inbox App Icon" />
             <span className="kicker kicker-light">BEREIT?</span>
-            <h2>Dein Schulalltag kann einfacher sein.</h2>
-            <p>Lade Inbox herunter und hab morgen schon alles im Blick.</p>
-            <StoreButton light />
+            <h2>Dein Schulalltag. Dein Smartphone.</h2>
+            <p>iOS oder Android – bring mehr Überblick in deinen Schulalltag.</p>
+            <div className="platform-actions">
+              <StoreButton light />
+              <AndroidButton light />
+            </div>
           </div>
         </section>
       </main>
